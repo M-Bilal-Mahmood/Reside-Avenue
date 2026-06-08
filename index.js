@@ -96,6 +96,13 @@ async function main() {
     await mongoose.connect(process.env.ATLAS_DB);
 }
 
+// ================================
+// Routes
+// ================================
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
 app.use("/", users);
@@ -145,3 +152,4 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
