@@ -80,7 +80,7 @@ app.use(flash());
 app.use((req, res, next) => {
     res.locals.flashMsg = req.flash("flashMsg");
     res.locals.optName = req.flash("optType");
-    res.locals.currentUser = req.user;
+    res.locals.currentUser = req.user || null;
     next();
 });
 
