@@ -5,13 +5,18 @@ const axios = require('axios');
 
 // map geocoding function
 let geocode = async(location) => {
-    let URL = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(location)}&key=${process.env.OPENCAGE_API_KEY}`;
-    let mapResponse = await axios.get(URL);
-    if(mapResponse.data.results.length == 0) {
+    try {
+        let URL = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(location)}&key=${process.env.OPENCAGE_API_KEY}`;
+        let mapResponse = await axios.get(URL);
+        if(mapResponse.data.results.length == 0) {
+            return {lat: 0, lng: 0};
+        }
+        let {lat, lng} = mapResponse.data.results[0].geometry;
+        return {lng, lat};
+    } catch (err) {
+        console.error("Geocoding Error:", err.message);
         return {lat: 0, lng: 0};
     }
-    let {lat, lng} = mapResponse.data.results[0].geometry;
-    return {lng, lat};
 }
 module.exports.index = async (req,res,next) => {
     let allListings = await ListingModel.find({});
