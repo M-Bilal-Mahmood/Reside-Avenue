@@ -6,8 +6,6 @@ const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
-const ejsMate = require('ejs-mate');
-const port = 3000;
 const session = require('express-session');
 const MongoStore = require('connect-mongo').default;
 const flash = require('connect-flash');
@@ -166,3 +164,4 @@ app.use((err,req,res,next) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
