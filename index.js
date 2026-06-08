@@ -6,6 +6,7 @@ const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
+const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const MongoStore = require('connect-mongo').default;
 const flash = require('connect-flash');
