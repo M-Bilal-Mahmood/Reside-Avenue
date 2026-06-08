@@ -1,0 +1,45 @@
+main {
+    padding-top: 5rem;
+}
+.listing_cards_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+}
+.listing_cards_container a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+.listing_cards {
+    display: flex;
+    flex-direction: column;
+}
+.listing_cards .listing_card_image img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+.listing_cards .listing_title {
+    font-size: 0.875rem;
+    color: #222;
+    font-weight: 600;
+}
+.listing_cards .listing_price {
+    font-size: 0.75rem;
+    color: #6A6A6A;
+    font-weight: 600;
+    word-spacing: normal;
+}
+@media screen and (max-width: 900px) {
+    .listing_cards_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 550px) {
+    .listing_cards_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

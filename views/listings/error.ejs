@@ -1,0 +1,44 @@
+<%layout("layouts/boilerplate")%>
+<% block('styles').append('<link rel="stylesheet" href="/css/error.css">') %>
+<%
+    let errorDetails = {
+        400: {
+            icon: "fa-triangle-exclamation text-warning",
+            message: "The submitted data format is invalid or contains empty fields."
+        },
+        404: {
+            icon: "fa-magnifying-glass text-info",
+            message: "The listing you are searching for does not exist or has been deleted."
+        },
+        409: {
+            icon: "fa-copy text-danger",
+            message: "This record already exists. Please choose a different title or name."
+        },
+        500: {
+            icon: "fa-server text-danger",
+            message: "An unexpected application error occurred. We are working to resolve it."
+        },
+        503: {
+            icon: "fa-gears text-muted",
+            message: "The database connection timed out. Please check your network and retry."
+        }
+
+    };
+    let currentError = errorDetails[statusCode] || errorDetails[500];
+%>
+<main>
+    <div class="error-wrapper">
+        <div class="error-icon">
+           <i class="fa-solid <%=currentError.icon%>"></i>
+        </div>
+        <p class="code-status"><%=statusCode%></p>
+        <div class="error-divider"></div>
+        <p class="error-title"><%=message%></p>
+        <p class="error-messsage"><%=currentError.message%></p>
+        <div class="error-tag">
+            <div class="error-dot"></div>
+            <p class="error-status"><%=statusCode%></p>
+            <p class="error-message"><%=message%></p>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up — ResideAvenue</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/flashToast.css">
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+<%- include("../includes/flashToast") %>
+<div class="signup-wrapper">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+        <div class="deco-circle deco-top"></div>
+        <div class="deco-circle deco-bottom"></div>
+
+        <div class="left-content">
+
+            <div class="logo">reside<span>avenue</span></div>
+
+            <h2 class="left-heading">Join thousands of<br>happy travellers</h2>
+            <p class="left-subtitle">Create your free account and start exploring unique stays around the world in minutes.</p>
+
+            <div class="perks-list">
+
+                <div class="perk">
+                    <div class="perk-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="perk-text">
+                        <p class="perk-title">Discover 2,400+ listings</p>
+                        <p class="perk-desc">Unique homes across 80+ countries worldwide</p>
+                    </div>
+                </div>
+
+                <div class="perk">
+                    <div class="perk-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="perk-text">
+                        <p class="perk-title">Save your favourites</p>
+                        <p class="perk-desc">Wishlist properties and come back anytime</p>
+                    </div>
+                </div>
+
+                <div class="perk">
+                    <div class="perk-icon">
+                        <i class="fa-solid fa-house-chimney-medical"></i>
+                    </div>
+                    <div class="perk-text">
+                        <p class="perk-title">List your own property</p>
+                        <p class="perk-desc">Start earning from your space for free</p>
+                    </div>
+                </div>
+
+                <div class="perk">
+                    <div class="perk-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="perk-text">
+                        <p class="perk-title">Verified and secure</p>
+                        <p class="perk-desc">Every listing checked and quality assured</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="social-proof">
+            <div class="avatar-stack">
+                <div class="avatar">
+                    <img src="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=80&q=60" alt="traveller" />
+                </div>
+                <div class="avatar">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=80&q=60" alt="traveller" />
+                </div>
+                <div class="avatar">
+                    <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=80&q=60" alt="traveller" />
+                </div>
+            </div>
+            <div class="proof-text">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>Trusted by <span>12,000+</span> travellers worldwide</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+        <div class="form-container">
+
+            <div class="logo logo-mobile">reside<span>avenue</span></div>
+
+            <div class="form-header">
+                <h1>Create your account</h1>
+                <p>It's free and only takes a minute to get started.</p>
+            </div>
+
+            <form action="/signup" method="POST" class="signup-form">
+
+                <div class="field-group">
+                    <label for="username">Full Name</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user"></i>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="e.g. Ahmed Khan"
+                            required
+                            autocomplete="username"
+                        />
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                            autocomplete="email"
+                        />
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock"></i>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Min. 8 characters"
+                            required
+                            autocomplete="new-password"
+                        />
+                        <i class="fa-solid fa-eye toggle-eye" id="togglePassword"></i>
+                    </div>
+                    <p class="field-hint">Use at least 8 characters with a mix of letters and numbers.</p>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fa-solid fa-user-plus"></i>
+                    Create Account
+                </button>
+
+            </form>
+
+            <div class="divider">
+                <div class="divider-line"></div>
+                <span>Already a member?</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <a href="/signin" class="btn-secondary">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Sign In Instead
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput  = document.getElementById('password');
+
+    togglePassword.addEventListener('click', () => {
+        const isPassword = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+        togglePassword.classList.toggle('fa-eye');
+        togglePassword.classList.toggle('fa-eye-slash');
+    });
+</script>
+
+</body>
+</html>

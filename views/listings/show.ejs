@@ -1,0 +1,174 @@
+<%layout("layouts/boilerplate")%>
+<% block('styles').append('<link rel="stylesheet" href="/css/show.css">') %>
+<%-block('scripts').append('<script src="/js/show.js"></script>')%>
+    <main>
+        <div class="listing_body_wrapper">
+
+            <div class="listing_small_header">
+                <div class="back_listing">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <a href="/listings">Back to Listings</a>
+                </div>
+                <p>
+                    <%= listingDetails.title %>
+                </p>
+            </div>
+
+            <div class="listing-content">
+                <div class="listing-image">
+                    <img src="<%= listingDetails.image.url %>" alt="<%= listingDetails.title %>">
+                    <div class="listing-publisher">
+                        <i class="fa-solid fa-newspaper"></i>
+                        <span>Published by: <%= listingDetails.owner ? listingDetails.owner.username : "Unknown Owner" %></span>
+                    </div>
+                    <div class="listing_pinned_location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span class="pinned_location"><%= listingDetails.location %>, <%= listingDetails.country %></span>
+                    </div>
+                </div>
+                <div class="listing-overview">
+                    <div class="listing_info">
+                        <h2 class="listing_title"><%= listingDetails.title %></h2>
+                            <div class="listing_locations">
+                                <div class="listing_info_pinned_location">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span class="pinned_location"><%= listingDetails.location %></span>
+                                </div>
+                                <div class="listing_info_pinned_location">
+                                    <i class="fa-solid fa-flag"></i>
+                                    <span class="pinned_country"><%= listingDetails.country %></span>
+                                </div>
+                          </div>    
+                    </div>
+                    <div class="listing_info_price">
+                        <i class="fa-solid fa-tag"></i>
+                        <p>Prices include all fees</p>
+                    </div>
+                </div>
+                <div class="listing_details">
+                    <div class="listing_description">
+                        <h2>About this Place</h2>
+                        <p><%= listingDetails.description %></p>
+                    </div>
+                    <div class="listing_actions">
+                        <p class="listing_price"><%= listingDetails.price.toLocaleString('ur-PK', { style: 'currency', currency: 'PKR' }) %> <span>per night</span></p>
+                        <button class="book_now">Reserve Now</button>
+                        <div class="action_divider"></div>
+                        <%if (currentUser && currentUser._id.equals(listingDetails.owner._id)) {%>
+                            <div class="action_buttons">
+                                <a href="/listings/<%= listingDetails._id %>/edit" class="edit_listing">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    Edit
+                                </a>
+                                <form method="POST" action="/listings/<%= listingDetails._id %>?_method=DELETE" class="review-card-deletion">
+                                    <i class="fa-solid fa-trash"></i>
+                                    <button class="delete_listing">Delete</button>
+                                </form>
+                            </div>
+                        <%} else {%>
+                            <div class="action_info">
+                                <p class="action_note"><i class="fa-solid fa-circle-info"></i> You won't be charged yet</p>
+                                <p class="action_tax"><i class="fa-solid fa-tag"></i> Prices include all taxes</p>
+                            </div>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="listing-map">
+                <div class="map-heading">
+                    Where you’ll be
+                </div>
+                <div class="map-location">
+                    <%=listingDetails.location%>, <%=listingDetails.country%>
+                </div>
+                <div id="map" class="mapbox"></div>
+               <script>
+                    const coords = <%- JSON.stringify(listingDetails.geometry.coordinates) %>;
+                    if(coords[0] !== 0 && coords[1] !== 0) {
+                        const map = L.map('map').setView([coords[1], coords[0]], 13);
+                        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                            attribution: '© OpenStreetMap © CARTO'
+                        }).addTo(map);
+                        L.marker([coords[1], coords[0]])
+                            .addTo(map)
+                            .bindPopup(`<b><%= listingDetails.title %></b><br><%= listingDetails.location %>`)
+                            .openPopup();
+                    }
+                </script>
+            </div>
+
+            <div class="divider"></div>
+            <div class="reviews-wrapper">
+                <div class="review-header">
+                    <img src="/images/left-feather-review.png">
+                    <div class="review-counter">
+                        <span class="review-title">Reviews</span>
+                        <span class="total-reviews"><%=listingDetails.reviews.length %></span>
+                    </div>
+                    <img src="/images/right-feather-review.png">
+                </div> 
+                <form class="review-form" action="/listings/<%=listingDetails.id%>/reviews/new" method="POST">
+                        <span class="review-form-title">Leave a Review</span>
+                    <div class="review-form-header">
+                        <div class="field-wrapper" id="review-name-wrapper">
+                            <label for="name">Your Name</label>
+                            <input type="text" name="name">
+                        </div>
+                        <div class="field-wrapper">
+                            <label for="rating">Your Rating</label>
+                            <div class="rating-wrapper">
+                                <i class="fa-regular fa-star review-star" data-rating="1"></i>
+                                <i class="fa-regular fa-star review-star" data-rating="2"></i>
+                                <i class="fa-regular fa-star review-star" data-rating="3"></i>
+                                <i class="fa-regular fa-star review-star" data-rating="4"></i>
+                                <i class="fa-regular fa-star review-star" data-rating="5"></i>
+                                <input type="hidden" value="" name="rating" class="rating-value">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field-wrapper">
+                        <label for="comment">Comment Here</label>
+                        <textarea type="text" name="comment" placeholder="Share your experience - what you did love about this place?" id="comment"></textarea>
+                    </div>
+                    <button type="submit">Submit Review</button>
+                </form>
+                <div class="review-grid">
+                    <% for (let review of listingDetails.reviews) { %>
+                        <div class="review-testimonal-card">
+                            <div class="review-top-row">
+                                <div class="review-card-avatar">
+                                    <%=review.name.charAt(0).toUpperCase()%>
+                                </div>
+                                <div class="review-card-info">
+                                    <div class="reviewer-name">
+                                        <%=review.name%>
+                                    </div>
+                                    <div class="review-card-time">
+                                        <%=review.createdAt.toLocaleString('en-PK', {month: 'long', year: 'numeric'})%>
+                                    </div>
+                                </div>
+                                <div class="review-card-rating">
+                                    <%for (let i = 1; i<=5; i++) {%>
+                                        <i class="fa-<%= i <= review.rating ? 'solid' : 'regular' %> fa-star"></i>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="review-card-text review-card-deletion">
+                                <span><%= review.comment %></span>
+                                <% if (currentUser && listingDetails.owner._id.equals(currentUser._id)) { %>
+                                    <form method="POST" action="/listings/<%=listingDetails._id%>/reviews/<%=review._id%>?_method=DELETE">
+                                    <button class="delete-review">
+                                        <i class="fa-solid fa-trash"></i>
+                                        Delete
+                                    </button>
+                                </form>
+                                <%}%>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+
+        </div>
+    </main>

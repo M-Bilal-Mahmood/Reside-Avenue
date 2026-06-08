@@ -1,0 +1,67 @@
+<%layout("layouts/boilerplate")%>
+<% block('styles').append('<link rel="stylesheet" href="/css/new.css">') %>
+<%-block('scripts').append('<script src="/js/new.js"></script>')%>
+<main>
+    <div class="form_wrapper">
+        <div class="form_header">
+            <span>Property  Details</span>
+            <p>Share the basics about your space — you can always update these later.</p>
+        </div>
+        <form action="/listings" method="POST" class="needs-validation live-validation" novalidate enctype="multipart/form-data">
+            <div class="form_field_wrapper">
+                <label for="title">Title</label>
+                <input type="text" placeholder="e.g. Cozy Beachfront Cottage in Malibu" name="title" required>
+                 <div class="invalid-feedback">Please enter a title.</div>
+                 <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="form_field_wrapper">
+                <label for="description">Description</label>
+                <textarea type="text" placeholder="Describe your space — what makes it unique, nearby attractions, house rules..." name="description" required></textarea>
+                <div class="invalid-feedback">Please enter a description.</div>
+                <div class="valid-feedback">Noted it!</div>
+            </div>
+            <div class="form_field_wrapper">
+                <label>Upload Image</label>
+                <div class="upload-wrapper">
+
+                    <div class="upload-thumb">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
+
+                    <div class="upload-info">
+                        <p class="upload-filename">No file chosen</p>
+                        <p class="upload-hint">PNG, JPG, WEBP — max 5MB</p>
+                        <label for="image" class="upload-choose-btn">
+                            <i class="fa-solid fa-upload"></i>
+                            Choose file
+                        </label>
+                    </div>
+
+                    <input type="file" id="image" name="image" accept="image/*" />
+
+                </div>
+            </div>
+            <div class="form_field_wrapper">
+                <label for="price">Price per night</label>
+                <input type="number" placeholder="Enter your price" name="price" required>
+                <div class="invalid-feedback">Please enter a price.</div>
+                <div class="valid-feedback">Bold choice!</div>
+            </div>
+            <div class="form_field_wrapper" id="form_field_location_wrapper">
+                <div class="location_field">
+                    <label for="location">Location</label>
+                    <input type="text" placeholder="City or area" name="location" required>
+                    <div class="invalid-feedback">Please enter a location.</div>
+                    <div class="valid-feedback">Found it!</div>
+                </div>
+                <div class="location_field">
+                    <label for="country">Country</label>
+                    <input type="text" placeholder="Country" name="country" required>
+                    <div class="invalid-feedback">Please enter a country.</div>
+                    <div class="valid-feedback">Acceptable choice!</div>
+                </div>
+            </div>
+            <button type="submit">+ Create Listing</button>
+        </form>
+    </div>
+</main>    

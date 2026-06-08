@@ -1,0 +1,15 @@
+<%
+    let message = flashMsg[0] || "";
+    if(message) {
+%>
+        <div class="flash-toast" data-type="<%=optName[0]%>">
+            <div class="icon-avatar">
+                <i class="fa-solid fa-check operation-icon"></i>
+            </div>
+            <div class="toast-content">
+                <div class="toast-title"></div>
+                <div class="toast-message"><%= message %></div>
+            </div>
+        </div>
+        <script src="/js/flashToast.js"></script>
+<% } %>

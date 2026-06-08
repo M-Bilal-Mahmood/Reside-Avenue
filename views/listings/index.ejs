@@ -1,0 +1,17 @@
+<%layout("layouts/boilerplate")%>
+<% block('styles').append('<link rel="stylesheet" href="/css/index.css">') %>
+<main>
+    <div class="listing_cards_container">
+        <% for (let listing of allListings) { %>
+            <a href="/listings/<%= listing._id %>">
+                <div class="listing_cards">
+                    <div class="listing_card_image">
+                        <img src="<%= listing.image.url %>" alt="<%= listing.title %>">
+                    </div>
+                    <p class="listing_title"><%= listing.title %></p>
+                    <p class="listing_price"><%= listing.price.toLocaleString('ur-PK', { style: 'currency', currency: 'PKR' }) %> for 2 nights</p>
+                </div>
+            </a>
+        <% } %>
+    </div>
+</main>

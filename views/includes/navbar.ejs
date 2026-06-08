@@ -1,0 +1,188 @@
+
+<nav class="navbar">
+
+    <a href="/listings" class="navbar-logo">
+        reside<span>avenue</span>
+    </a>
+
+    <div class="search-bar">
+        <div class="search-section search-section--where">
+            <i class="fa-solid fa-house-chimney"></i>
+            <span>Anywhere</span>
+        </div>
+        <div class="search-section search-section--when">
+            <span>Any week</span>
+        </div>
+        <div class="search-section search-section--listing">
+            <span>Add your listing</span>
+            <a href="/listings/new" class="search-btn">
+                <i class="fa-solid fa-plus"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="navbar-right">
+        <a href="#" class="navbar-globe" aria-label="Language">
+            <i class="fa-solid fa-globe"></i>
+        </a>
+        <div class="navbar-menu" id="navbarMenu">
+            <i class="fa-solid fa-bars bars"></i>
+            <div class="navbar-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="navbar-dropdown">
+                <div class="dropdown-header">
+                    <%if (currentUser) {%>
+                        <div class="dropdown-header-avatar">
+                            <div class="avatar"><%=currentUser.username.charAt(0).toUpperCase()%></div>
+                        </div>
+                        <div class="dropdown-header-text">
+                            <h4>Hello, <%=currentUser.username%></h4>
+                            <p><%=currentUser.email%></p>
+                        </div>
+                    <%} else {%>
+                        <div class="dropdown-header-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="dropdown-header-text">
+                            <h4>Hello, traveller!</h4>
+                            <p>Sign in to get started</p>
+                        </div>
+                    <%}%>
+                </div>
+                <% if (currentUser) {%>
+                    <div class="dropdown-auth">
+                        <form action="/logout?_method=DELETE" method="POST">
+                            <button type="submit" class="btn-logout">Log out</button>
+                        </form>
+                    </div>
+                <% } else {%>
+                    <div class="dropdown-auth">
+                        <a href="/signup" class="btn-signup">Sign up</a>
+                        <a href="/signin" class="btn-login">Log in</a>
+                    </div>
+                <%}%>
+                <div class="dropdown-items">
+                    <a href="/listings/new" class="dropdown-item">
+                        <i class="fa-solid fa-house-chimney-medical"></i>
+                        <span>Add your listing</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <span>Help Center</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar-mobile">
+    <a href="/listings" class="navbar-logo">
+        reside<span>avenue</span>
+    </a>
+    <div class="mobile-search">
+        <i class="fa-solid fa-house-chimney home-icon"></i>
+        <span>Anywhere</span>
+        <a href="/listings" class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+    </div>
+    <button class="navbar-mobile-user" id="mobileMenuBtn" aria-label="Account">
+        <i class="fa-solid fa-user"></i>
+    </button>
+</nav>
+
+<div class="mobile-backdrop hidden" id="mobileBackdrop"></div>
+
+<div class="mobile-menu hidden" id="mobileMenu">
+    <div class="mobile-menu-handle"></div>
+    <div class="mobile-menu-header">
+        <% if(currentUser) { %>
+            <div class="mobile-menu-avatar">
+                <span><%= currentUser.username.charAt(0).toUpperCase() %></span>
+            </div>
+            <div class="mobile-menu-header-text">
+                <h4>Hello, <%= currentUser.username %>!</h4>
+                <p><%= currentUser.email %></p>
+            </div>
+        <% } else { %>
+            <div class="mobile-menu-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="mobile-menu-header-text">
+                <h4>Hello, traveller!</h4>
+                <p>Sign in to get started</p>
+            </div>
+        <% } %>
+    </div>
+    <div class="mobile-menu-auth">
+        <% if(currentUser) { %>
+            <form action="/logout?_method=DELETE" method="POST" style="width:100%">
+                <button type="submit" class="mobile-btn-logout">Log out</button>
+            </form>
+        <% } else { %>
+            <a href="/signup" class="mobile-btn-signup">Sign up</a>
+            <a href="/signin" class="mobile-btn-login">Log in</a>
+        <% } %>
+    </div>
+    <div class="mobile-menu-items">
+        <a href="/listings/new" class="mobile-menu-item">
+            <i class="fa-solid fa-house-chimney-medical"></i>
+            <span>Add your listing</span>
+        </a>
+        <div class="mobile-menu-divider"></div>
+        <a href="#" class="mobile-menu-item">
+            <i class="fa-solid fa-circle-question"></i>
+            <span>Help Center</span>
+        </a>
+    </div>
+</div>
+
+<script>
+    const navbarMenu = document.getElementById('navbarMenu');
+    navbarMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navbarMenu.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+        if (!navbarMenu.contains(e.target)) navbarMenu.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') navbarMenu.classList.remove('open');
+    });
+
+    const mobileMenuBtn  = document.getElementById('mobileMenuBtn');
+    const mobileMenu     = document.getElementById('mobileMenu');
+    const mobileBackdrop = document.getElementById('mobileBackdrop');
+
+    function openMobileMenu() {
+        mobileMenu.classList.remove('hidden');
+        mobileBackdrop.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        mobileMenu.classList.add('hidden');
+        mobileBackdrop.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileBackdrop.addEventListener('click', closeMobileMenu);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileMenu();
+    });
+    function handleResponsiveSync() {
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+        } else {
+            mobileMenu.classList.add('hidden');
+            mobileBackdrop.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', handleResponsiveSync);
+    window.addEventListener('resize', handleResponsiveSync);
+</script>

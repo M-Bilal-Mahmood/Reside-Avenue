@@ -1,0 +1,79 @@
+main {
+    padding: 5rem 0 0 0;
+    background-color: #F0F0F0;
+}
+.error-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 6rem 0 4rem 0;
+}
+.error-icon {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background: #FFF0F3;
+    border: 2px solid #FFD0D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.error-icon i{
+    font-size: 2rem;
+    color: #FF385C;
+}
+.code-status {
+    font-size: 5rem;
+    font-weight: 900;
+    color: #FF385C;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+.error-divider {
+    width: 3rem;
+    height: 3px;
+    background: #FF385C;
+    border-radius: 55em;
+}
+.error-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #222;
+    text-align: center;
+}
+.error-messsage {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #717171;
+    max-width: 420px;
+    line-height: 1.7;
+    text-align: center;
+}
+.error-tag {
+    background: #FFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 55em;
+    padding: 0.75rem 1.25rem;
+    margin: 0 2rem 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.error-dot {
+    width: 0.5rem; 
+    height: 0.5rem; 
+    border-radius: 50%;
+    background: #FF385C;
+}
+.error-status {
+    font-size: 0.8rem; 
+    color: #717171; 
+    font-weight: 600;
+}
+.error-message {
+    font-size: 0.8rem; 
+    color: #222; 
+    font-weight: 800;
+}
