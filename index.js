@@ -18,6 +18,7 @@ const User = require('./Models/userModel.js');
 const passport = require('passport');
 const LocalStrategy = require(`passport-local`).Strategy;
 
+const port = process.env.PORT || 3000;
 //=================================
 // Middlewares
 //=================================
