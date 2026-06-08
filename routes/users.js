@@ -8,8 +8,12 @@ const passport = require('passport');
 router.route("/signup").
 get(userController.showSignupForm).
 post(redirector, wrapAsync(userController.userSignup));
+
 router.route("/signin").
 get(userController.showSigninForm).
-post(redirector, userController.userSignin);
+post(userController.userSignin);
+
 router.delete("/logout", userController.userLogout);
+
 module.exports = router;
+
