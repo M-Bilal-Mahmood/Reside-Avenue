@@ -1,18 +1,75 @@
 main {
     padding-top: 5rem;
 }
+.skeleton-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.skeleton {
+    background-color: #DDDBDD;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.skeleton::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+        90deg,
+        rgba(255,255,255,0) 0,
+        rgba(255,255,255,0.2) 20%,
+        rgba(255,255,255,0.5) 60%,
+        rgba(255,255,255,0)
+    );
+    animation: shimmer 1.5s infinite;
+    content: '';
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.skeleton-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 0.5rem;
+    margin-bottom: 8px;
+}
+
+.skeleton-title {
+    height: 14px;
+    width: 70%;
+    margin-bottom: 6px;
+}
+
+.skeleton-price {
+    height: 12px;
+    width: 40%;
+}
 .listing_cards_container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     padding: 2rem;
 }
+
 .listing_cards_container a {
-    text-decoration: none;
     display: block;
     width: 100%;
+    text-decoration: none;
 }
 .listing_cards {
+    display: none;
+}
+.listing_cards.loaded {
     display: flex;
     flex-direction: column;
 }
@@ -21,6 +78,7 @@ main {
     aspect-ratio: 4/3;
     object-fit: cover;
     border-radius: 0.5rem;
+    background-color: #F7F7F7;
 }
 .listing_cards .listing_title {
     font-size: 0.875rem;

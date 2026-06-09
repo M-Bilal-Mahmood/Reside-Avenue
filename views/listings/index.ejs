@@ -1,17 +1,25 @@
 <%layout("layouts/boilerplate")%>
 <% block('styles').append('<link rel="stylesheet" href="/css/index.css">') %>
+<% block('scripts').append('<script src="/js/index.js"></script>') %>
 <main>
     <div class="listing_cards_container">
         <% for (let listing of allListings) { %>
-            <a href="/listings/<%= listing._id %>">
-                <div class="listing_cards">
-                    <div class="listing_card_image">
-                        <img src="<%= listing.image.url %>" alt="<%= listing.title %>">
-                    </div>
-                    <p class="listing_title"><%= listing.title %></p>
-                    <p class="listing_price"><%= listing.price.toLocaleString('ur-PK', { style: 'currency', currency: 'PKR' }) %> for 2 nights</p>
+            <div class="card-wrapper">
+                <div class="skeleton-card">
+                    <div class="skeleton skeleton-image"></div>
+                    <div class="skeleton skeleton-title"></div>
+                    <div class="skeleton skeleton-price"></div>
                 </div>
-            </a>
+                <a href="/listings/<%= listing._id %>">
+                    <div class="listing_cards">
+                        <div class="listing_card_image">
+                            <img src="<%= listing.image.url %>" alt="<%= listing.title %>">
+                        </div>
+                        <p class="listing_title"><%= listing.title %></p>
+                        <p class="listing_price"><%= listing.price.toLocaleString('ur-PK', { style: 'currency', currency: 'PKR' }) %> for 2 nights</p>
+                    </div>
+                </a>
+            </div>
         <% } %>
     </div>
 </main>
