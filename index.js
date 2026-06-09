@@ -45,6 +45,8 @@ mongoSession.on("error", (error) => {
     console.log(`Mongo Session Error: ${error}`);
 });
 
+app.set("trust proxy", 1);
+
 app.use(session({
     store: mongoSession,
     secret: process.env.SECRET,
@@ -54,7 +56,7 @@ app.use(session({
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "lax"
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax"
     }
 }));
 

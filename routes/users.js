@@ -11,7 +11,7 @@ post(redirector, wrapAsync(userController.userSignup));
 
 router.route("/signin").
 get(userController.showSigninForm).
-post(userController.userSignin);
+post(redirector, userController.userSignin);
 
 router.delete("/logout", userController.userLogout);
 
