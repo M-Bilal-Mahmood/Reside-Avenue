@@ -1,10 +1,3 @@
-/* =========================================
-   SIGNUP PAGE — ResideAvenue
-   Matches established design system:
-   Font: Nunito Sans | Primary: #FF385C
-   ========================================= */
-
-/* ── CSS Variables ── */
 :root {
     --primary:          #FF385C;
     --primary-hover:    #E00B41;
@@ -20,7 +13,6 @@
     --bg-panel:         #FFF5F7;
 }
 
-/* ── Reset ── */
 *,
 *::before,
 *::after {
@@ -29,7 +21,6 @@
     padding: 0;
 }
 
-/* ── Base ── */
 html,
 body {
     height: 100%;
@@ -39,18 +30,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* ══════════════════════════════════════
-   PAGE WRAPPER
-══════════════════════════════════════ */
 .signup-wrapper {
     display: grid;
     grid-template-columns: 45% 55%;
     min-height: 100vh;
 }
 
-/* ══════════════════════════════════════
-   LEFT PANEL
-══════════════════════════════════════ */
 .left-panel {
     background-color: var(--bg-panel);
     padding: 3rem 2.5rem;
@@ -62,13 +47,13 @@ body {
     overflow: hidden;
 }
 
-/* Decorative background circles */
 .deco-circle {
     position: absolute;
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
 }
+
 .deco-top {
     width: 320px;
     height: 320px;
@@ -76,6 +61,7 @@ body {
     top: -100px;
     right: -90px;
 }
+
 .deco-bottom {
     width: 200px;
     height: 200px;
@@ -84,13 +70,11 @@ body {
     left: -60px;
 }
 
-/* Left panel main content */
 .left-content {
     position: relative;
     z-index: 1;
 }
 
-/* ── Logo ── */
 .logo {
     font-size: 1.65rem;
     font-weight: 900;
@@ -100,17 +84,16 @@ body {
     display: inline-block;
     margin-bottom: 2rem;
 }
+
 .logo span {
     color: #444444;
 }
 
-/* Mobile-only logo (hidden on desktop) */
 .logo-mobile {
     display: none;
     margin-bottom: 1.75rem;
 }
 
-/* ── Left Heading ── */
 .left-heading {
     font-size: 1.6rem;
     font-weight: 900;
@@ -119,7 +102,6 @@ body {
     margin-bottom: 0.75rem;
 }
 
-/* ── Left Subtitle ── */
 .left-subtitle {
     font-size: 0.875rem;
     font-weight: 400;
@@ -128,21 +110,18 @@ body {
     margin-bottom: 2.25rem;
 }
 
-/* ── Perks List ── */
 .perks-list {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
 }
 
-/* Single perk row */
 .perk {
     display: flex;
     align-items: flex-start;
     gap: 0.85rem;
 }
 
-/* Perk icon box */
 .perk-icon {
     width: 2.25rem;
     height: 2.25rem;
@@ -155,18 +134,19 @@ body {
     justify-content: center;
     flex-shrink: 0;
 }
+
 .perk-icon i {
     font-size: 0.875rem;
     color: var(--primary);
 }
 
-/* Perk text */
 .perk-title {
     font-size: 0.85rem;
     font-weight: 800;
     color: var(--text-primary);
     margin-bottom: 2px;
 }
+
 .perk-desc {
     font-size: 0.75rem;
     font-weight: 400;
@@ -174,9 +154,6 @@ body {
     line-height: 1.55;
 }
 
-/* ══════════════════════════════════════
-   SOCIAL PROOF CARD
-══════════════════════════════════════ */
 .social-proof {
     position: relative;
     z-index: 1;
@@ -190,11 +167,11 @@ body {
     gap: 1rem;
 }
 
-/* Avatar stack */
 .avatar-stack {
     display: flex;
     align-items: center;
 }
+
 .avatar {
     width: 2.25rem;
     height: 2.25rem;
@@ -203,9 +180,11 @@ body {
     overflow: hidden;
     flex-shrink: 0;
 }
+
 .avatar:not(:first-child) {
     margin-left: -9px;
 }
+
 .avatar img {
     width: 100%;
     height: 100%;
@@ -213,32 +192,29 @@ body {
     display: block;
 }
 
-/* Stars */
 .stars {
     display: flex;
     align-items: center;
     gap: 2px;
     margin-bottom: 3px;
 }
+
 .stars i {
     font-size: 0.75rem;
     color: var(--primary);
 }
 
-/* Proof text */
 .proof-text p {
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-secondary);
 }
+
 .proof-text p span {
     color: var(--text-primary);
     font-weight: 900;
 }
 
-/* ══════════════════════════════════════
-   RIGHT PANEL
-══════════════════════════════════════ */
 .right-panel {
     background-color: var(--bg-white);
     display: flex;
@@ -252,10 +228,10 @@ body {
     max-width: 420px;
 }
 
-/* ── Form Header ── */
 .form-header {
     margin-bottom: 2rem;
 }
+
 .form-header h1 {
     font-size: 1.75rem;
     font-weight: 900;
@@ -263,6 +239,7 @@ body {
     letter-spacing: -0.02em;
     margin-bottom: 0.45rem;
 }
+
 .form-header p {
     font-size: 0.875rem;
     font-weight: 400;
@@ -270,27 +247,23 @@ body {
     line-height: 1.65;
 }
 
-/* ══════════════════════════════════════
-   FORM FIELDS
-══════════════════════════════════════ */
 .signup-form {
     display: flex;
     flex-direction: column;
     gap: 0;
 }
 
-/* Field group wrapper */
 .field-group {
     display: flex;
     flex-direction: column;
     gap: 0.45rem;
     margin-bottom: 1.25rem;
 }
+
 .field-group:nth-child(3) {
     margin-bottom: 0;
 }
 
-/* Label */
 .field-group label {
     font-size: 0.73rem;
     font-weight: 800;
@@ -299,7 +272,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Input wrapper */
 .input-wrapper {
     display: flex;
     align-items: center;
@@ -310,24 +282,24 @@ body {
     background-color: var(--bg-white);
     transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
+
 .input-wrapper:focus-within {
     border-color: var(--primary);
     background-color: #FFFBFC;
     box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.07);
 }
 
-/* Icon inside input */
 .input-wrapper i {
     font-size: 1rem;
     color: var(--placeholder);
     flex-shrink: 0;
     transition: color 0.18s ease;
 }
+
 .input-wrapper:focus-within i {
     color: var(--primary);
 }
 
-/* Eye toggle — stays muted, doesn't change on focus */
 .toggle-eye {
     margin-left: auto;
     cursor: pointer;
@@ -335,11 +307,11 @@ body {
     color: var(--placeholder) !important;
     transition: color 0.18s ease;
 }
+
 .toggle-eye:hover {
     color: var(--text-secondary) !important;
 }
 
-/* Input element */
 .input-wrapper input {
     flex: 1;
     border: none;
@@ -351,12 +323,12 @@ body {
     color: var(--text-primary);
     width: 100%;
 }
+
 .input-wrapper input::placeholder {
     color: var(--placeholder);
     font-weight: 400;
 }
 
-/* Field hint */
 .field-hint {
     font-size: 0.72rem;
     font-weight: 400;
@@ -366,12 +338,7 @@ body {
     padding-left: 2px;
     line-height: 1.5;
 }
- 
-/* ══════════════════════════════════════
-   BUTTONS
-══════════════════════════════════════ */
 
-/* Primary — Create Account */
 .btn-primary {
     width: 100%;
     padding: 1.05rem;
@@ -390,17 +357,19 @@ body {
     gap: 0.5rem;
     transition: background-color 0.18s ease;
 }
+
 .btn-primary:hover {
     background-color: #e8324f;
 }
+
 .btn-primary:active {
     background-color: var(--primary-hover);
 }
+
 .btn-primary i {
     font-size: 1rem;
 }
 
-/* Secondary — Sign In Instead */
 .btn-secondary {
     width: 100%;
     padding: 1rem;
@@ -420,28 +389,29 @@ body {
     text-decoration: none;
     transition: border-color 0.18s ease;
 }
+
 .btn-secondary:hover {
     border-color: var(--text-muted);
 }
+
 .btn-secondary i {
     font-size: 0.95rem;
     color: var(--text-secondary);
 }
 
-/* ══════════════════════════════════════
-   DIVIDER
-══════════════════════════════════════ */
 .divider {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     margin: 1.5rem 0;
 }
+
 .divider-line {
     flex: 1;
     height: 1px;
     background-color: var(--border-light);
 }
+
 .divider span {
     font-size: 0.72rem;
     font-weight: 600;
@@ -449,59 +419,42 @@ body {
     white-space: nowrap;
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE — TABLET  (601px – 900px)
-══════════════════════════════════════ */
 @media screen and (max-width: 900px) {
     .signup-wrapper {
         grid-template-columns: 1fr;
     }
-
-    /* Hide left panel on tablet and below */
     .left-panel {
         display: none;
     }
-
-    /* Right panel takes full width */
     .right-panel {
         min-height: 100vh;
         padding: 2.5rem 2rem;
         align-items: flex-start;
         padding-top: 3rem;
     }
-
     .form-container {
         max-width: 480px;
         margin: 0 auto;
         width: 100%;
     }
-
-    /* Show mobile logo since left panel is hidden */
     .logo-mobile {
         display: inline-block;
     }
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE — MOBILE  (≤ 600px)
-══════════════════════════════════════ */
 @media screen and (max-width: 600px) {
     .right-panel {
         padding: 2rem 1.25rem;
     }
-
     .form-header h1 {
         font-size: 1.5rem;
     }
-
     .form-header p {
         font-size: 0.82rem;
     }
-
     .input-wrapper {
         padding: 0.82rem 0.9rem;
     }
-
     .btn-primary,
     .btn-secondary {
         padding: 0.95rem;

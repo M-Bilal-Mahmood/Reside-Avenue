@@ -1,39 +1,49 @@
 main {
-    padding: 5rem 0 0 0;
+    padding-top: 5rem;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
     background-color: #F0F0F0;
 }
+
 .form_wrapper {
     max-width: 600px;
     margin: 0 auto;
     padding: 2rem 1.5rem 2.5rem;
 }
+
 .form_header {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 2rem;
 }
+
 .form_header span {
     font-size: 1.75rem;
     font-weight: 900;
     color: #222;
 }
+
 .form_header p {
     font-size: 0.875rem;
     font-weight: 400;
     color: #717171;
 }
+
 form {
     background-color: #FFF;
     border-radius: 1rem;
     padding: 2rem;
     cursor: default;
 }
+
 form label {
     font-size: 1rem;
     font-weight: 800;
     color: #222;
 }
+
 form input {
     padding: 0.8rem 1rem;
     border-radius: 10px;
@@ -41,16 +51,19 @@ form input {
     font-size: 0.9rem;
     color: #222;
 }
+
 form input:focus {
     outline: none;
     border: 1.5px solid #FF385C;
     background-color: #FFFBFC;
-    box-shadow: 0 0 0 3px rgba(255,56,92,0.07)
+    box-shadow: 0 0 0 3px rgba(255,56,92,0.07);
 }
+
 form input::placeholder {
     color: #666;
     font-weight: 400;
 }
+
 form textarea {
     padding: 0.8rem 1rem;
     border-radius: 10px;
@@ -62,25 +75,30 @@ form textarea {
     font-weight: 400;
     color: #222222;
 }
+
 form textarea:focus {
     border: 1.5px solid #FF385C;
     background-color: #FFFBFC;
     box-shadow: 0 0 0 3px rgba(255,56,92,0.07);
     outline: none;
 }
+
 form textarea::placeholder {
     color: #666;
     font-weight: 400;
 }
+
 .form_field_wrapper {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 1.6rem;
 }
+
 input[type="file"] {
     display: none;
 }
+
 .upload-wrapper {
     display: flex;
     align-items: center;
@@ -90,6 +108,7 @@ input[type="file"] {
     border: 1.5px solid #DDDDDD;
     background: #FFFFFF;
 }
+
 .upload-thumb {
     width: 52px;
     height: 52px;
@@ -102,20 +121,24 @@ input[type="file"] {
     flex-shrink: 0;
     overflow: hidden;
 }
+
 .upload-thumb i {
     font-size: 1.4rem;
     color: #CCCCCC;
 }
+
 .upload-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
+
 .upload-info {
     flex: 1;
     min-width: 0;
 }
+
 .upload-filename {
     font-size: 0.82rem;
     font-weight: 700;
@@ -125,11 +148,13 @@ input[type="file"] {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .upload-hint {
     font-size: 0.7rem;
     color: #CCCCCC;
     margin-bottom: 8px;
 }
+
 .upload-choose-btn {
     display: inline-flex;
     align-items: center;
@@ -145,20 +170,24 @@ input[type="file"] {
     cursor: pointer;
     transition: background-color 0.18s ease;
 }
+
 .upload-choose-btn:hover {
     background: #E00B41;
 }
+
 #form_field_location_wrapper {
     flex-direction: row;
     gap: 1.5rem;
 }
+
 .location_field {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     flex: 1;
 }
-button {
+
+form button[type="submit"] {
     padding: 1rem;
     background-color: #FF385C;
     color: #FFF;
@@ -171,18 +200,18 @@ button {
     word-spacing: normal;
     transition: transform 0.05s ease-in-out;
 }
-button:active {
+
+form button[type="submit"]:active {
     transform: scale(0.95);
     opacity: 0.85;
 }
-/* Red border on empty/invalid fields ONLY after submit button clicked */
-.was-validated input:invalid, 
+
+.was-validated input:invalid,
 .was-validated textarea:invalid {
     border: 1.5px solid #e53935;
     background-color: #fff5f5;
 }
 
-/* Invalid feedback text hidden by default always */
 .invalid-feedback {
     display: none;
     font-size: 0.8rem;
@@ -190,13 +219,11 @@ button:active {
     margin-top: 0.25rem;
 }
 
-/* Show invalid feedback text ONLY after submit clicked and field is empty */
-.was-validated input:invalid ~ .invalid-feedback, 
+.was-validated input:invalid ~ .invalid-feedback,
 .was-validated textarea:invalid ~ .invalid-feedback {
     display: block;
 }
 
-/* Valid feedback text hidden by default always */
 .valid-feedback {
     display: none;
     font-size: 0.8rem;
@@ -204,14 +231,48 @@ button:active {
     margin-top: 0.25rem;
 }
 
-/* Show valid feedback text ONLY while user is actively typing 
-   and that particular field is correctly filled */
 .was-validated-input:valid ~ .valid-feedback {
     display: block;
 }
 
-/* Show invalid feedback text while user is typing 
-   but clears the field or enters wrong data */
 .was-validated-input:invalid ~ .invalid-feedback {
     display: block;
+}
+
+@media screen and (max-width: 650px) {
+    main {
+        padding-top: 6rem;
+        background-color: #F0F0F0;
+    }
+    .form_wrapper {
+        padding: 1.5rem 1rem 2rem;
+    }
+    .form_header span {
+        font-size: 1.4rem;
+    }
+    .form_header p {
+        font-size: 0.8rem;
+    }
+    form {
+        padding: 1.25rem;
+    }
+    form label {
+        font-size: 0.875rem;
+    }
+    form input {
+        font-size: 0.85rem;
+        padding: 0.7rem 0.85rem;
+    }
+    form textarea {
+        font-size: 0.85rem;
+        padding: 0.7rem 0.85rem;
+    }
+    #form_field_location_wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    form button[type="submit"] {
+        font-size: 0.875rem;
+        padding: 0.875rem;
+    }
 }

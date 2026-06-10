@@ -1,10 +1,3 @@
-/* =========================================
-   NAVBAR — ResideAvenue
-   Desktop : 3-col grid  logo | search | icons
-   Mobile  : bottom slide-up menu
-   Font : Nunito Sans  |  Primary : #FF385C
-   ========================================= */
-
 :root {
     --primary:        #FF385C;
     --primary-hover:  #E00B41;
@@ -19,10 +12,6 @@
     --bg-muted:       #F5F5F5;
     --bg-hover:       #F7F7F7;
 }
-
-/* ══════════════════════════════════════
-   DESKTOP NAVBAR
-══════════════════════════════════════ */
 .navbar {
     width: 100%;
     height: 4.75rem;
@@ -38,7 +27,6 @@
     left: 0;
     z-index: 1000;
 }
-
 .navbar-logo {
     justify-self: start;
     text-decoration: none;
@@ -49,8 +37,6 @@
     white-space: nowrap;
 }
 .navbar-logo span { color: #444444; }
-
-/* ── Search bar ── */
 .search-bar {
     display: flex;
     align-items: center;
@@ -62,7 +48,6 @@
     transition: box-shadow 0.2s ease;
 }
 .search-bar:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-
 .search-section {
     display: flex;
     align-items: center;
@@ -73,7 +58,6 @@
 }
 .search-section:hover { background-color: var(--bg-hover); }
 .search-section span { font-size: 0.82rem; font-weight: 700; color: var(--text-primary); }
-
 .search-section--where {
     gap: 0.45rem;
     padding: 0 1.1rem;
@@ -82,7 +66,6 @@
 .search-section--where i { font-size: 0.95rem; color: var(--primary); flex-shrink: 0; }
 .search-section--when { padding: 0 1.1rem; border-right: 1px solid var(--border-default); }
 .search-section--listing { gap: 0.6rem; padding: 0 0.45rem 0 1.1rem; }
-
 .search-btn {
     width: 1.9rem;
     height: 1.9rem;
@@ -97,15 +80,12 @@
 }
 .search-btn:hover { background-color: var(--primary-hover); }
 .search-btn i { font-size: 0.75rem; color: var(--bg-white); }
-
-/* ── Right icons ── */
 .navbar-right {
     justify-self: end;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
-
 .navbar-globe {
     width: 2.1rem;
     height: 2.1rem;
@@ -122,7 +102,6 @@
 }
 .navbar-globe:hover { background-color: #EBEBEB; }
 .navbar-globe i { font-size: 0.95rem; color: #444444; }
-
 .navbar-menu {
     position: relative;
     display: flex;
@@ -139,7 +118,6 @@
 }
 .navbar-menu:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 .navbar-menu .bars { font-size: 0.875rem; color: #444444; }
-
 .navbar-avatar {
     width: 1.8rem;
     height: 1.8rem;
@@ -151,8 +129,6 @@
     flex-shrink: 0;
 }
 .navbar-avatar i { font-size: 0.75rem; color: var(--bg-white); }
-
-/* ── Desktop dropdown ── */
 .navbar-dropdown {
     position: absolute;
     top: calc(100% + 10px);
@@ -174,7 +150,6 @@
     pointer-events: all;
     transform: translateY(0);
 }
-
 .dropdown-header {
     background-color: var(--primary-light);
     border-bottom: 1px solid var(--primary-border);
@@ -197,7 +172,6 @@
 .dropdown-header-avatar .avatar { font-size: 0.95rem; color: var(--bg-white); font-weight: 900; }
 .dropdown-header-text h4 { font-size: 0.82rem; font-weight: 900; color: var(--text-primary); margin-bottom: 1px; }
 .dropdown-header-text p { font-size: 0.7rem; font-weight: 400; color: var(--text-secondary); }
-
 .dropdown-auth {
     display: flex;
     gap: 0.5rem;
@@ -221,7 +195,6 @@
 .btn-signup:hover { background-color: var(--primary-hover) !important; }
 .btn-login { background-color: var(--bg-white); color: #444444 !important; border: 1.5px solid var(--border-default); }
 .btn-login:hover { border-color: var(--text-muted) !important; }
-
 .dropdown-auth form { flex: 1; }
 .btn-logout {
     width: 100%;
@@ -238,7 +211,6 @@
     transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 .btn-logout:hover { background-color: var(--primary); color: var(--bg-white); border-color: var(--primary); }
-
 .dropdown-items { padding: 0.4rem 0 0.5rem; }
 .dropdown-item {
     display: flex;
@@ -253,75 +225,120 @@
 .dropdown-item i { font-size: 0.95rem; color: var(--text-muted); flex-shrink: 0; width: 1.1rem; text-align: center; }
 .dropdown-item span { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); }
 .dropdown-divider { height: 1px; background-color: var(--border-light); margin: 0.4rem 1.25rem; }
-
-
-/* ══════════════════════════════════════
-   MOBILE NAVBAR
-══════════════════════════════════════ */
 .navbar-mobile {
     display: none;
     width: 100%;
-    height: 4rem;
     background-color: var(--bg-white);
     border-bottom: 1px solid var(--border-light);
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    padding: 0 1.25rem;
-    gap: 0.75rem;
+    flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
 }
-.navbar-mobile .navbar-logo { font-size: 1.25rem; }
-
-.mobile-search {
+.navbar-mobile-top {
+    height: 3rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+    padding: 0 1.1rem;
+    border-bottom: 1px solid #F5F5F5;
+}
+.navbar-mobile .navbar-logo {
+    font-size: 1.2rem;
+}
+.navbar-mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     border: 1px solid var(--border-default);
     border-radius: 55em;
-    padding: 0 0.45rem 0 1rem;
-    background-color: var(--bg-white);
+    padding: 4px 7px 4px 10px;
     cursor: pointer;
-    height: 2.4rem;
-    width: 100%;
-    transition: box-shadow 0.2s ease;
+    background-color: var(--bg-white);
+    flex-shrink: 0;
+    transition: box-shadow 0.15s ease;
 }
-.mobile-search:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-.mobile-search .home-icon { font-size: 0.875rem; color: var(--primary); flex-shrink: 0; }
-.mobile-search span { font-size: 0.82rem; font-weight: 700; color: var(--text-primary); white-space: nowrap; flex: 1; overflow: hidden; text-overflow: ellipsis; }
-.mobile-search .search-btn { width: 1.7rem; height: 1.7rem; }
-.mobile-search .search-btn i { font-size: 0.68rem; }
-
-.navbar-mobile-user {
-    width: 2rem;
-    height: 2rem;
+.navbar-mobile-menu-btn:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.navbar-mobile-menu-btn i.fa-bars {
+    font-size: 0.8rem;
+    color: #444444;
+}
+.navbar-mobile-avatar {
+    width: 1.7rem;
+    height: 1.7rem;
     border-radius: 50%;
     background-color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.18s ease;
+    font-size: 0.72rem;
+    font-weight: 900;
+    color: var(--bg-white);
+    font-family: "Nunito Sans", sans-serif;
 }
-.navbar-mobile-user:hover { background-color: var(--primary-hover); }
-.navbar-mobile-user i { font-size: 0.82rem; color: var(--bg-white); }
-
-
-/* ══════════════════════════════════════
-   MOBILE BOTTOM MENU
-══════════════════════════════════════ */
+.navbar-mobile-avatar i {
+    font-size: 0.7rem;
+    color: var(--bg-white);
+}
+.navbar-mobile-search-row {
+    padding: 7px 1rem 9px;
+}
+.mobile-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border-default);
+    border-radius: 55em;
+    padding: 0 7px 0 14px;
+    height: 2.25rem;
+    background-color: var(--bg-white);
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+    transition: box-shadow 0.2s ease;
+}
+.mobile-search:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.mobile-search .home-icon {
+    font-size: 0.85rem;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+.mobile-search span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mobile-search .search-btn {
+    width: 1.65rem;
+    height: 1.65rem;
+    border-radius: 50%;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.mobile-search .search-btn i {
+    font-size: 0.65rem;
+    color: var(--bg-white);
+}
 .mobile-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0,0,0,0.45);
     z-index: 1100;
 }
 .mobile-backdrop.hidden { display: none; }
-
 .mobile-menu {
     position: fixed;
     bottom: 0;
@@ -336,7 +353,6 @@
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mobile-menu.hidden { transform: translateY(100%); }
-
 .mobile-menu-handle {
     width: 2.5rem;
     height: 4px;
@@ -344,7 +360,6 @@
     border-radius: 55em;
     margin: 0.75rem auto 0.5rem;
 }
-
 .mobile-menu-header {
     background-color: var(--primary-light);
     border-bottom: 1px solid var(--primary-border);
@@ -367,7 +382,6 @@
 .mobile-menu-avatar span { font-size: 0.95rem; font-weight: 900; color: var(--bg-white); }
 .mobile-menu-header-text h4 { font-size: 0.82rem; font-weight: 900; color: var(--text-primary); margin: 0 0 1px; }
 .mobile-menu-header-text p { font-size: 0.7rem; font-weight: 400; color: var(--text-secondary); margin: 0; }
-
 .mobile-menu-auth {
     display: flex;
     gap: 0.5rem;
@@ -395,7 +409,6 @@
 .mobile-btn-login:hover { border-color: var(--text-muted); }
 .mobile-btn-logout { background-color: var(--bg-white); color: #444444; border: 1.5px solid var(--border-default); width: 100%; }
 .mobile-btn-logout:hover { background-color: var(--primary); color: var(--bg-white); border-color: var(--primary); }
-
 .mobile-menu-items { padding: 0.4rem 0 2.5rem; }
 .mobile-menu-item {
     display: flex;
@@ -410,20 +423,15 @@
 .mobile-menu-item i { font-size: 0.95rem; color: var(--text-muted); width: 1.1rem; text-align: center; }
 .mobile-menu-item span { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); }
 .mobile-menu-divider { height: 1px; background-color: var(--border-light); margin: 0.3rem 1.25rem; }
-
-
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
 @media screen and (max-width: 900px) {
     .navbar { padding: 0 1.5rem; gap: 0.75rem; }
     .search-section span { font-size: 0.78rem; }
-    .search-section--where  { padding: 0 0.85rem; }
-    .search-section--when   { padding: 0 0.85rem; }
+    .search-section--where { padding: 0 0.85rem; }
+    .search-section--when { padding: 0 0.85rem; }
     .search-section--listing { padding: 0 0.4rem 0 0.85rem; }
 }
-
 @media screen and (max-width: 650px) {
-    .navbar        { display: none; }
-    .navbar-mobile { display: grid; }
+    .navbar { display: none; }
+    .navbar-mobile { display: flex; }
 }
+

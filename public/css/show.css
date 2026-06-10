@@ -27,7 +27,7 @@ main {
     color: #6a6a6a;
 }
 .back_listing a:hover {
-    text-decoration: underline
+    text-decoration: underline;
 }
 .listing_small_header p {
     font-size: 0.95rem;
@@ -46,7 +46,6 @@ main {
     flex: 1;
     position: relative;
 }
-
 .listing-content .listing-image img {
     width: 100%;
     height: 100%;
@@ -118,11 +117,13 @@ main {
     align-items: center;
     gap: 0.375rem;
 }
-.listing_info_pinned_location .fa-flag, .listing_info_pinned_location .fa-location-dot {
+.listing_info_pinned_location .fa-flag,
+.listing_info_pinned_location .fa-location-dot {
     color: var(--primary-logo-color);
     font-size: 0.875rem;
 }
-.listing_info_pinned_location .pinned_location, .listing_info_pinned_location .pinned_country {
+.listing_info_pinned_location .pinned_location,
+.listing_info_pinned_location .pinned_country {
     font-size: 0.875rem;
     color: #222;
     font-weight: 600;
@@ -142,7 +143,7 @@ main {
     width: 320px;
     border-radius: 0.625rem;
     background-color: #FFF;
-    box-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), -0.25rem -0.25rem 0.125rem rgba(0, 0, 0, 0.05);
+    box-shadow: 0.25rem 0.25rem 0.25rem rgba(0,0,0,0.1), -0.25rem -0.25rem 0.125rem rgba(0,0,0,0.05);
 }
 .listing_info_price .fa-tag {
     color: var(--primary-logo-color);
@@ -175,7 +176,7 @@ main {
     padding: 1.5rem;
     gap: 1rem;
     width: 320px;
-    box-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.1), -0.25rem -0.25rem 0.125rem rgba(0, 0, 0, 0.05);
+    box-shadow: 0.25rem 0.25rem 0.25rem rgba(0,0,0,0.1), -0.25rem -0.25rem 0.125rem rgba(0,0,0,0.05);
     border-radius: 0.625rem;
 }
 .listing_price {
@@ -218,7 +219,6 @@ main {
     gap: 1rem;
     width: 100%;
 }
-
 .edit_listing, .action_buttons form {
     flex: 1;
     padding: 1rem;
@@ -234,7 +234,7 @@ main {
     gap: 0.5rem;
     transition: transform 0.05s ease-in-out;
 }
-.edit_listing:hover, .action_buttons form:hover , .action_buttons form:hover button {
+.edit_listing:hover, .action_buttons form:hover, .action_buttons form:hover button {
     background-color: #222;
     color: #FFF;
     transform: scale(0.95);
@@ -250,11 +250,6 @@ main {
 .edit_listing {
     text-decoration: none;
     color: #222;
-}
-.divider {
-    height: 1px;
-    background-color: #DDD;
-    margin: 3.5rem 0.8rem;
 }
 .action_info {
     display: flex;
@@ -273,6 +268,11 @@ main {
 .action_note .fa-circle-info, .action_tax .fa-tag {
     color: var(--primary-logo-color);
     font-size: 0.8rem;
+}
+.divider {
+    height: 1px;
+    background-color: #DDD;
+    margin: 3.5rem 0.8rem;
 }
 .listing-map {
     display: flex;
@@ -308,8 +308,12 @@ main {
     justify-content: center;
     gap: 1rem;
 }
+.review-header img {
+    width: 80px;
+    height: auto;
+}
 .review-counter {
-    display:flex;
+    display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
@@ -321,7 +325,7 @@ main {
     color: #222;
     text-align: center;
 }
-.review-counter .total-reviews{
+.review-counter .total-reviews {
     font-size: 1.875rem;
     font-weight: 700;
     color: #222;
@@ -344,7 +348,7 @@ main {
 .review-form label {
     font-size: 1rem;
     font-weight: 800;
-    color: #222222;;
+    color: #222222;
 }
 .review-form-header {
     display: flex;
@@ -420,7 +424,7 @@ button:active {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.1) 0.25rem 0.25rem 0.25rem, rgba(0, 0, 0, 0.05) -0.25rem -0.25rem 0.125rem;
+    box-shadow: rgba(0,0,0,0.1) 0.25rem 0.25rem 0.25rem, rgba(0,0,0,0.05) -0.25rem -0.25rem 0.125rem;
     background-color: #FFFFFF;
     border-radius: 0.75rem;
     padding: 1.25rem;
@@ -435,7 +439,7 @@ button:active {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    background-color: #FFF0F3;;
+    background-color: #FFF0F3;
     border: 2px solid #FFD0D9;
     display: flex;
     align-items: center;
@@ -460,14 +464,11 @@ button:active {
     justify-content: space-between;
     gap: 1rem;
 }
-/* ===== REVIEW CARD DELETE BUTTON ===== */
-
 .review-card-text form {
     display: flex;
     align-items: center;
     flex-shrink: 0;
 }
-
 .review-card-text form button.delete-review {
     display: flex;
     align-items: center;
@@ -483,138 +484,23 @@ button:active {
     transition: all 0.15s ease-in-out;
     white-space: nowrap;
 }
-
 .review-card-text form .fa-trash {
     font-size: 0.75rem;
     color: #6a6a6a;
     transition: color 0.15s ease-in-out;
     pointer-events: none;
 }
-
 .review-card-text form:hover button.delete-review {
     background-color: #FF385C;
     border-color: #FF385C;
     color: #FFF;
 }
-
 .review-card-text form:hover .fa-trash {
     color: #FFF;
 }
-
 .review-card-text form:active button.delete-review {
     transform: scale(0.95);
     opacity: 0.85;
-}
-@media screen and (max-width: 900px) {
-    .divider {
-        margin: 2.5rem 0.5rem;
-    }
-    .review-form {
-        padding: 1.5rem;
-        width: 100%;
-        max-width: 100%;
-    }
-    .review-form-header {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-    }
-    #review-name-wrapper input {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .divider {
-        margin: 2rem 0;
-    }
-    .review-form {
-        padding: 1rem;
-    }
-    .review-form-header {
-        align-items: center;
-    }
-    #review-name-wrapper input {
-        width: 100%;
-    }
-    .field-wrapper {
-        width: 100%;
-    }
-    .field-wrapper textarea {
-        width: 100%;
-    }
-}
-@media screen and (max-width: 900px) {
-    .review-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .review-grid {
-        grid-template-columns: 1fr;
-    }
-    .review-testimonal-card {
-        padding: 1rem;
-    }
-    .review-card-avatar {
-        width: 2rem;
-        height: 2rem;
-        font-size: 0.65rem;
-    }
-}
-@media screen and (max-width: 900px) {
-    .listing_info_price {
-        width: 100%;
-        margin-left: 0;
-    }
-    .listing-overview {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-        padding: 1.5rem 0;
-    }
-    .listing_details {
-        flex-direction: column;
-    }
-    .listing_details .listing_actions {
-        width: 100%;
-        margin-left: 0;
-    }
-    .listing_description p {
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 550px) {
-    .listing_body_wrapper {
-        padding: 2rem 1rem 1rem 1rem;
-    }
-    .listing-overview {
-        padding: 1rem 0;
-        gap: 0.75rem;
-    }
-    .listing_info_price {
-        padding: 1rem;
-        font-size: 0.8rem;
-    }
-    .listing_details .listing_actions {
-        padding: 1rem;
-    }
-    .listing_price {
-        font-size: 1.25rem;
-    }
-    .action_buttons {
-        flex-direction: row;
-    }
-}
-@media screen and (max-width: 550px) {
-    .listing-publisher {
-        right: 1rem;
-        bottom: 4rem;
-        font-size: 0.75rem;
-    }
 }
 .leaflet-control-zoom {
     border: none !important;
@@ -643,4 +529,195 @@ button:active {
     background-color: #FF385C !important;
     color: #FFF !important;
     border-color: #FF385C !important;
+}
+@media screen and (max-width: 900px) {
+    .divider {
+        margin: 2.5rem 0.5rem;
+    }
+    .listing-overview {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.5rem 0;
+    }
+    .listing_info_price {
+        width: 100%;
+        margin-left: 0;
+    }
+    .listing_details {
+        flex-direction: column;
+    }
+    .listing_details .listing_actions {
+        width: 100%;
+        margin-left: 0;
+    }
+    .listing_description p {
+        max-width: 100%;
+    }
+    .review-form {
+        width: 100%;
+        max-width: 100%;
+    }
+    .review-form-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    #review-name-wrapper input {
+        width: 100%;
+    }
+    .review-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+}
+@media screen and (max-width: 650px) {
+    .listing-publisher {
+        display: none;
+    }
+    .listing_pinned_location {
+        left: 1rem;
+        bottom: 1rem;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    .review-counter .review-title {
+        font-size: 1.75rem;
+    }
+    .review-counter .total-reviews {
+        font-size: 1.5rem;
+    }
+    .review-header img {
+        width: 50px;
+    }
+    .review-counter {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+}
+@media screen and (max-width: 550px) {
+    .listing_body_wrapper {
+        padding: 2rem 1rem 1rem 1rem;
+    }
+    .divider {
+        margin: 2rem 0;
+    }
+    .listing-overview {
+        padding: 1rem 0;
+        gap: 0.75rem;
+    }
+    .listing_info_price {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+    .listing_details .listing_actions {
+        padding: 1rem;
+    }
+    .listing_price {
+        font-size: 1.25rem;
+    }
+    .action_buttons {
+        flex-direction: row;
+    }
+    .review-form-title {
+        font-size: 1rem;
+    }
+    .review-form label {
+        font-size: 0.85rem;
+    }
+    .review-form {
+        padding: 0;
+    }
+    .review-form-header {
+        align-items: flex-start;
+    }
+    #review-name-wrapper input {
+        font-size: 0.85rem;
+        padding: 0.65rem 0.85rem;
+    }
+    .field-wrapper textarea {
+        font-size: 0.85rem;
+        padding: 0.65rem 0.85rem;
+        width: 100%;
+    }
+    .field-wrapper {
+        width: 100%;
+    }
+    .review-form button {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+    .review-testimonal-card {
+        padding: 1rem;
+    }
+    .review-top-row {
+        flex-wrap: wrap;
+    }
+    .review-card-avatar {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.65rem;
+    }
+    .review-card-rating {
+        margin-left: 0;
+        width: 100%;
+        font-size: 0.75rem;
+    }
+    .review-card-text {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .rating-wrapper {
+    margin-left: 0;
+    font-size: 0.9rem;
+    }
+    .review-form-header {
+        align-items: flex-start;
+    }
+    .listing_small_header {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    }
+    .listing_small_header p {
+        font-size: 0.82rem;
+    }
+    .back_listing {
+        font-size: 0.78rem;
+    }
+    .listing_description h2 {
+        font-size: 1.1rem;
+    }
+    .listing_description p {
+        font-size: 0.82rem;
+        line-height: 1.6;
+    }
+    .listing-map {
+        margin: 1rem 0;
+        gap: 0.75rem;
+    }
+    .map-heading {
+        font-size: 1.1rem;
+    }
+    .map-location {
+        font-size: 0.8rem;
+    }
+    .mapbox {
+        height: 280px;
+    }
+    .listing_info h2 {
+        font-size: 1.2rem;
+    }
+    .listing_locations {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .listing_info_pinned_location .pinned_location,
+    .listing_info_pinned_location .pinned_country {
+        font-size: 0.78rem;
+    }
 }

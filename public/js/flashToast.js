@@ -1,12 +1,10 @@
 let toast = document.querySelector(".flash-toast");
 
-// Guard: if no flash message was rendered, do nothing
 if (toast) {
     let type = toast.getAttribute("data-type");
     let operationIcon = toast.querySelector(".operation-icon");
     let toastTitle = toast.querySelector(".toast-title");
 
-    // Map type to display config
     let toastMap = {
         "create": { title: "Listing Created",  icon: "fa-solid fa-check" },
         "delete": { title: "Listing Deleted",  icon: "fa-solid fa-trash" },

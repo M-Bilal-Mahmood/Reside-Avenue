@@ -79,19 +79,36 @@
 </nav>
 
 <nav class="navbar-mobile">
-    <a href="/listings" class="navbar-logo">
-        reside<span>avenue</span>
-    </a>
-    <div class="mobile-search">
-        <i class="fa-solid fa-house-chimney home-icon"></i>
-        <span>Anywhere</span>
-        <a href="/listings" class="search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
+
+    <div class="navbar-mobile-top">
+
+        <a href="/listings" class="navbar-logo">
+            reside<span>avenue</span>
+        </a>
+
+        <button class="navbar-mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <i class="fa-solid fa-bars"></i>
+            <div class="navbar-mobile-avatar">
+                <% if(currentUser) { %>
+                    <%= currentUser.username.charAt(0).toUpperCase() %>
+                <% } else { %>
+                    <i class="fa-solid fa-user"></i>
+                <% } %>
+            </div>
+        </button>
+
+    </div>
+
+    <div class="navbar-mobile-search-row">
+        <a href="/listings" class="mobile-search">
+            <i class="fa-solid fa-house-chimney home-icon"></i>
+            <span>Anywhere</span>
+            <div class="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
         </a>
     </div>
-    <button class="navbar-mobile-user" id="mobileMenuBtn" aria-label="Account">
-        <i class="fa-solid fa-user"></i>
-    </button>
+
 </nav>
 
 <div class="mobile-backdrop hidden" id="mobileBackdrop"></div>
