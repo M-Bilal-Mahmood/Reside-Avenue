@@ -87,8 +87,8 @@
                     const coords = <%- JSON.stringify(listingDetails.geometry.coordinates) %>;
                     if(coords[0] !== 0 && coords[1] !== 0) {
                         const map = L.map('map').setView([coords[1], coords[0]], 13);
-                        L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-                            attribution: '© OpenStreetMap © CARTO'
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; OpenStreetMap contributors'
                         }).addTo(map);
                         L.marker([coords[1], coords[0]])
                             .addTo(map)
